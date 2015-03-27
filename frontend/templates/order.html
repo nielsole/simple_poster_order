@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+<p>This is your order:</p>
+<p>{{ order.name }}</p>
+<p>{{ order.email }}</p>
+<img width="100px" height="100px" src="{{order.image.url}}"/>
+
+
+<form action="" method="POST">
+    {% csrf_token %}
+  <script
+    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+    data-key="pk_test_fR3vDZgfteLJF10l68NbFey6"
+    data-amount="2500"
+    data-name="Demo Site"
+    data-description="1 poster (€25,00)"
+    data-image="/128x128.png"
+    data-bitcoin=true
+    data-currency="usd">
+  </script>
+</form>
+{% endblock %}
